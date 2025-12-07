@@ -9,7 +9,7 @@ const { aboutHref = "/about", resumeHref = "/resume.pdf" } = Astro.props;
 
 <div class="flip-container [perspective:1000px] w-[200px] h-[60px]">
 	<div class="flip-inner relative w-full h-full [transform-style:preserve-3d]">
-		<div class="absolute w-full h-full [backface-visibility:hidden] flex items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900">
+		<div class="flip-front absolute w-full h-full [backface-visibility:hidden] flex items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 cursor-pointer">
 			<p class="w-full h-full flex items-center justify-center font-semibold text-base no-underline transition-opacity hover:opacity-80">
 				About Me
 			</p>
@@ -27,7 +27,51 @@ const { aboutHref = "/about", resumeHref = "/resume.pdf" } = Astro.props;
 		transition: transform 0.6s;
 	}
 	
-	.flip-container:hover .flip-inner {
+	.flip-container.flipped .flip-inner {
 		transform: rotateY(180deg);
 	}
+	
+	@media (hover: hover) {
+		.flip-container:hover .flip-inner {
+			transform: rotateY(180deg);
+		}
+	}
 </style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const flipContainers = document.querySelectorAll('.flip-container');
+		const flipFronts = document.querySelectorAll('.flip-front');
+		const resumeLinks = document.querySelectorAll('.flip-container a[download]');
+		
+		// 点击正面翻转
+		flipFronts.forEach((front) => {
+			front.addEventListener('click', (e) => {
+				const container = front.closest('.flip-container');
+				if (container) {
+					container.classList.add('flipped');
+				}
+			});
+		});
+		
+		// 鼠标移开时复原
+		flipContainers.forEach((container) => {
+			container.addEventListener('mouseleave', () => {
+				container.classList.remove('flipped');
+			});
+		});
+		
+		// 点击下载链接后翻回
+		resumeLinks.forEach((link) => {
+			link.addEventListener('click', () => {
+				const container = link.closest('.flip-container');
+				if (container) {
+					// 延迟一下让下载开始，然后翻回
+					setTimeout(() => {
+						container.classList.remove('flipped');
+					}, 300);
+				}
+			});
+		});
+	});
+</script>
