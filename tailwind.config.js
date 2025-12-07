@@ -4,6 +4,9 @@ export default {
   darkMode: "class", // 使用 class 策略（通过 .dark 类切换）
   theme: {
     extend: {
+      fontFamily: {
+        italic: ["Crimson Text", "serif"],
+      },
       keyframes: {
         "fade-in": {
           "0%": { opacity: "0" },
