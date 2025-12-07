@@ -1,0 +1,33 @@
+---
+interface Props {
+	aboutHref?: string;
+	resumeHref?: string;
+}
+
+const { aboutHref = "/about", resumeHref = "/resume.pdf" } = Astro.props;
+---
+
+<div class="flip-container [perspective:1000px] w-[200px] h-[60px]">
+	<div class="flip-inner relative w-full h-full [transform-style:preserve-3d]">
+		<div class="absolute w-full h-full [backface-visibility:hidden] flex items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900">
+			<p class="w-full h-full flex items-center justify-center font-semibold text-base no-underline transition-opacity hover:opacity-80">
+				About Me
+			</p>
+		</div>
+		<div class="absolute w-full h-full [backface-visibility:hidden] flex items-center justify-center rounded-lg bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 [transform:rotateY(180deg)]">
+			<a href={resumeHref} class="w-full h-full flex items-center justify-center font-semibold text-base no-underline transition-opacity hover:opacity-80" download>
+				Download Resume
+			</a>
+		</div>
+	</div>
+</div>
+
+<style>
+	.flip-inner {
+		transition: transform 0.6s;
+	}
+	
+	.flip-container:hover .flip-inner {
+		transform: rotateY(180deg);
+	}
+</style>

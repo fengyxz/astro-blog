@@ -1,16 +1,29 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FlipButton from "../components/FlipButton.astro";
+import "../styles/global.css";
+const pageTitle = "Home";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>My Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<section class="min-h-screen flex flex-col items-center justify-center p-8 gap-12">
+		<p class="text-4xl font-bold animate-fade-in">
+			Hello, I'm Antik.
+		</p>
+		<div class="relative flex items-center justify-center animate-slide-in-left">
+			<!-- Outer ring 1 -->
+			<div class="absolute w-[212px] animate-pulse h-[212px] md:w-[412px] md:h-[412px] rounded-full border-2 
+			border-rose-300/80 dark:border-rose-400/80"></div>
+			<!-- Avatar -->
+			<div class="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden z-10">
+				<img 
+					src="/avatar.png" 
+					alt="Antik" 
+					class="w-full h-full object-cover"
+				/>
+			</div>
+		</div>
+		<FlipButton />
+	</section>
+</BaseLayout>
+		
+	

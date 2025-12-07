@@ -1,0 +1,49 @@
+---
+import { cn } from "../../lib/utils";
+---
+
+<button
+    aria-expanded="false"
+    aria-controls="main-menu"
+    class={cn(
+        "menu inline-flex items-center p-2 w-10 h-10 justify-center text-sm",
+        "text-zinc-700 dark:text-zinc-300",
+        "rounded-lg md:hidden",
+        "hover:bg-zinc-100 dark:hover:bg-white/10",
+        "focus:outline-none transition-all duration-200",
+        "relative"
+    )}
+>
+    <span class="sr-only">Open main menu</span>
+    <!-- Hamburger menu icon -->
+    <svg
+        class="menu-icon w-5 h-5 absolute transition-opacity duration-200"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+    >
+        <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15"></path>
+    </svg>
+    <!-- Close icon -->
+    <svg
+        class="close-icon w-5 h-5 absolute opacity-0 transition-opacity duration-200"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+    >
+        <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+</button>
+

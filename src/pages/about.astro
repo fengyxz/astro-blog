@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+const pageTitle = "About Me";
+const identity = {
+    firstName: "Sarah",
+    country: "Canada",
+    occupation: "Technical Writer",
+    hobbies: ["Photography", "Bird Watching", "Baseball"],
+};
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const happy = true;
+const finished = false;
+const goal = 3;
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+ 
+
+    <h2>...and my new Astro site!</h2>
+    {happy && <p>I'm very happy to be learning Astro!</p>}
+
+    {finished && <p>I finished this tutorial!</p>}
+
+    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+    <p>Here are a few facts about me:</p>
+    <ul>
+        <li>My name is {identity.firstName}.</li>
+        <li>I live in {identity.country}. My occupation is {identity.occupation}.</li>
+        {
+            identity.hobbies.length >= 2 && (
+                <li>
+                    My two hobbies: {identity.hobbies[0]} and {identity.hobbies[1]}
+                </li>
+            )
+        }
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+    <p>
+        I'm learning Astro
+        through the introductory tutorial. This is the second page on my site, and it's the first page I built myself!
+    </p>
+
+    <p>
+        As I complete more tutorials, this site will be updated, so keep checking back to see how my journey goes!
+    </p>
+</BaseLayout>

@@ -1,0 +1,54 @@
+---
+import { Github, Twitter, Youtube, Mail } from "lucide-astro";
+---
+
+<footer class="mt-16 pt-8 pb-12 border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <!-- Copyright info -->
+            <div class="text-sm text-zinc-600 dark:text-zinc-400">
+                <p>© {new Date().getFullYear()} Antik's Blog. All rights reserved.</p>
+            </div>
+
+            <!-- Social media links -->
+            <nav class="flex items-center gap-4" aria-label="Social media links">
+                <a
+                    href="https://github.com/fengyxz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-200"
+                    aria-label="GitHub"
+                >
+                    <Github class="w-5 h-5" />
+                </a>
+                <a
+                    href="https://x.com/LvDanyu91571"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-200"
+                    aria-label="Twitter"
+                >
+                    <Twitter class="w-5 h-5" />
+                </a>
+                <a
+                    href="https://www.youtube.com/@lvdanyu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-200"
+                    aria-label="YouTube"
+                >
+                    <Youtube class="w-5 h-5" />
+                </a>
+                    <a
+                    href="mailto:lvdanyu39@gmail.com"
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-200"
+                    aria-label="email"
+                >
+                    <Mail class="w-5 h-5" />
+                </a>
+            </nav>
+        </div>
+    </div>
+</footer>
+

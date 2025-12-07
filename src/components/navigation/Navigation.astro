@@ -1,0 +1,23 @@
+---
+import NavItem from "./NavItem.astro";
+
+const navItems = [
+    { href: "/", label: "Home" },
+    // { href: "/about", label: "About" },
+    // { href: "/blog", label: "Blog" },
+    { href: "/", label: "Projects" },
+    { href: "/", label: "More" },
+];
+---
+
+<div
+    id="main-menu"
+    class="hidden flex-col p-4 md:p-0 mt-4 font-medium border-none rounded-lg
+    bg-transparent
+    md:flex md:flex-row md:space-x-8
+    rtl:space-x-reverse md:mt-0
+   md:dark:bg-transparent"
+>
+    {navItems.map((item) => <NavItem href={item.href}>{item.label}</NavItem>)}
+</div>
+
